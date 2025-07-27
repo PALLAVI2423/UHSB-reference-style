@@ -1,1 +1,0 @@
-# UHSB-reference-style

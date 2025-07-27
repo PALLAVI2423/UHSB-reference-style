@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0">
+  <info>
+    <title>UHS Bagalkot – Thesis Style</title>
+    <id>http://www.uhsbagalkot.edu.in/thesis-style</id>
+    <link href="http://www.uhsbagalkot.edu.in/thesis-style" rel="self"/>
+    <author>
+      <name>Punith Kumar K N</name>
+      <email>example@uhsbagalkot.edu.in</email>
+    </author>
+    <category citation-format="note"/>
+    <summary>Custom CSL for UHS Bagalkot thesis references including journals, books, reports, newsletters, websites, theses, and seminars.</summary>
+    <updated>2025-07-27T00:00:00Z</updated>
+  </info>
+
+  <macro name="author">
+    <names variable="author">
+      <name and="text" delimiter=", " initialize-with=". "/>
+      <label form="short" prefix=", "/>
+    </names>
+  </macro>
+
+  <macro name="access">
+    <text variable="URL" prefix="Available at: "/>
+    <group prefix=" [Accessed on " suffix="]">
+      <date variable="accessed">
+        <date-part name="day" suffix="."/>
+        <date-part name="month" suffix="."/>
+        <date-part name="year"/>
+      </date>
+    </group>
+  </macro>
+
+  <macro name="title">
+    <text variable="title" font-style="italic"/>
+  </macro>
+
+  <citation>
+    <layout delimiter="; " prefix="(" suffix=")">
+      <text macro="author"/>
+      <date variable="issued">
+        <date-part name="year" prefix=", "/>
+      </date>
+    </layout>
+  </citation>
+
+  <bibliography hanging-indent="true">
+    <sort>
+      <key macro="author"/>
+      <key variable="issued"/>
+    </sort>
+    <layout>
+      <text macro="author" suffix=", "/>
+      <date variable="issued">
+        <date-part name="year"/>
+      </date>
+      <choose>
+        <if type="article-journal">
+          <text variable="title" prefix=", "/>
+          <text variable="container-title" font-style="italic" prefix=", "/>
+          <text variable="volume" prefix=", "/>
+          <text variable="issue" prefix="(" suffix=")"/>
+          <text variable="page" prefix=": "/>
+        </if>
+        <else-if type="paper-conference">
+          <text variable="title" prefix=", "/>
+          <text variable="event" prefix=", In: "/>
+          <text variable="event-place" prefix=", "/>
+          <text variable="publisher" prefix=", "/>
+          <text variable="page" prefix=", pp. "/>
+        </else-if>
+        <else-if type="report">
+          <text variable="title" prefix=", "/>
+          <text variable="publisher" prefix=", "/>
+          <text variable="publisher-place" prefix=", "/>
+          <text variable="page" prefix=", pp. "/>
+        </else-if>
+        <else-if type="thesis">
+          <text variable="title" prefix=", "/>
+          <text variable="genre" prefix=", "/>
+          <text variable="publisher" prefix=", "/>
+          <text variable="publisher-place" prefix=" (" suffix=")"/>
